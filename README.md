@@ -1,4 +1,5 @@
-# OpenDoto
+# OpenDoto 
+[![Gem Version](https://badge.fury.io/rb/open_doto.svg)](https://badge.fury.io/rb/open_doto)
 [![Build Status](https://travis-ci.org/lebibin/open_doto.svg?branch=master)](https://travis-ci.org/lebibin/open_doto)
 [![Code Climate](https://codeclimate.com/github/lebibin/open_doto/badges/gpa.svg)](https://codeclimate.com/github/lebibin/open_doto)
 [![Test Coverage](https://codeclimate.com/github/lebibin/open_doto/badges/coverage.svg)](https://codeclimate.com/github/lebibin/open_doto/coverage)
