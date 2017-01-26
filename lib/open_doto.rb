@@ -1,5 +1,4 @@
-require "open_doto/version"
-
+require 'open_doto/version'
+require 'open_doto/api/player'
 module OpenDoto
-  # Your code goes here...
 end
