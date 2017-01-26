@@ -1,4 +1,5 @@
 # coding: utf-8
+# frozen_string_literal: true
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'open_doto/version'
@@ -9,8 +10,8 @@ Gem::Specification.new do |spec|
   spec.authors       = ['Kevin Candelaria']
   spec.email         = ['kevdashdev@gmail.com']
 
-  spec.summary       = %q{Ruby gem for accessing the OpenDota API}
-  spec.description   = %q{Ruby gem for accessing the OpenDota API}
+  spec.summary       = 'Ruby gem for accessing the OpenDota API'
+  spec.description   = 'Ruby gem for accessing the OpenDota API'
   spec.homepage      = 'https://github.com/lebibin/open_doto'
   spec.license       = 'MIT'
 
