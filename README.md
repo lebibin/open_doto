@@ -1,4 +1,5 @@
 # OpenDoto
+[![Build Status](https://travis-ci.org/lebibin/open_doto.svg?branch=master)](https://travis-ci.org/lebibin/open_doto)
 
 An unofficial Ruby gem for the [OpenDota API](https://www.opendota.com/)
 
