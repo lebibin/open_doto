@@ -11,7 +11,7 @@ Gem::Specification.new do |spec|
 
   spec.summary       = %q{Ruby gem for accessing the OpenDota API}
   spec.description   = %q{Ruby gem for accessing the OpenDota API}
-  spec.homepage      = 'https://github.com/lebibin/opendoto'
+  spec.homepage      = 'https://github.com/lebibin/open_doto'
   spec.license       = 'MIT'
 
   spec.files         = `git ls-files -z`.split("\x0").reject do |f|
