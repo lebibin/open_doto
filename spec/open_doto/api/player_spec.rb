@@ -3,8 +3,27 @@ require 'spec_helper'
 describe OpenDoto::API::Player do
   subject(:player) do
     VCR.use_cassette 'opendoto/player/valid' do
-      response = player_with('101260776')
-      described_class.new(response)
+      OpenDoto::API::Player.find('101260776')
+    end
+  end
+  describe '.find(account_id)' do
+    context 'with valid account_id' do
+      it 'returns OpenDoto::API::Player' do
+        expect(subject).to be_a(OpenDoto::API::Player)
+      end
+      it 'is valid' do
+        expect(subject.valid?).to be(true)
+      end
+    end
+    context 'with invalid account_id' do
+      it 'returns nil if account_id is nil' do
+        player = OpenDoto::API::Player.find(nil)
+        expect(player).to be_nil
+      end
+      it 'returns nil if account_id is blank' do
+        player = OpenDoto::API::Player.find('')
+        expect(player).to be_nil
+      end
     end
   end
   specify '#account_id' do
@@ -52,7 +71,7 @@ describe OpenDoto::API::Player do
     expect(subject.untracked_at).to eq(nil)
   end
   describe '#valid?' do
-    it 'returns true' do
+    it 'returns true since it is valid' do
       expect(subject.valid?).to be(true)
     end
   end
