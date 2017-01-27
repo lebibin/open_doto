@@ -16,12 +16,9 @@ module OpenDoto
       end
 
       private_class_method def self.player_with(account_id)
-        url = URI.parse("http://api.opendota.com/api/players/#{account_id}")
-        req = Net::HTTP::Get.new(url.to_s)
-        res = Net::HTTP.start(url.host, url.port) do |http|
-          http.request req
-        end
-        JSON.parse res.body
+        endpoint = "http://api.opendota.com/api/players/#{account_id}"
+        response = Faraday.get endpoint
+        JSON.parse response.body
       end
 
       def valid?
