@@ -16,5 +16,5 @@ VCR.configure do |c|
 end
 
 RSpec.configure do |c|
-  c.include ApiHelper
+  c.include APIHelper
 end
