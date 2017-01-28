@@ -1,93 +1,31 @@
 # frozen_string_literal: true
+require 'faraday'
+require 'yajl/json_gem'
 module OpenDoto
+  # :nodoc:
   module API
     # :nodoc:
     class Player
-      attr_reader :response
+      attr_reader :account_id
 
-      def initialize(response)
-        @response = response
+      def initialize(account_id)
+        @account_id = account_id
+      end
+
+      def show
+        Player.find(account_id)
       end
 
       def self.find(account_id)
         return if [nil, ''].include? account_id
         response = player_with account_id
-        new(response)
+        OpenDoto::Player.new(response)
       end
 
       private_class_method def self.player_with(account_id)
         endpoint = "http://api.opendota.com/api/players/#{account_id}"
         response = Faraday.get endpoint
         JSON.parse response.body
-      end
-
-      def valid?
-        !account_id.nil?
-      end
-
-      def account_id
-        profile['account_id']
-      end
-
-      def avatar(size = nil)
-        avatar_for(size)
-      end
-
-      def cheese
-        profile['cheese']
-      end
-
-      def last_login_at
-        profile['last_login']
-      end
-
-      def location_country_code
-        profile['loccountrycode']
-      end
-
-      def name
-        profile['name']
-      end
-
-      def party_mmr
-        response['competitive_rank']
-      end
-
-      def persona_name
-        profile['personaname']
-      end
-
-      def profile_url
-        profile['profileurl']
-      end
-
-      def solo_mmr
-        response['solo_competitive_rank']
-      end
-
-      def steam_id
-        profile['steamid']
-      end
-
-      def untracked_at
-        response['tracked_until']
-      end
-
-      private
-
-      def profile
-        response['profile'] || {}
-      end
-
-      def avatar_for(size)
-        case size
-        when :medium
-          profile['avatarmedium']
-        when :full
-          profile['avatarfull']
-        else
-          profile['avatar']
-        end
       end
     end
   end
