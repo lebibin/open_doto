@@ -2,7 +2,7 @@
 require 'spec_helper'
 describe OpenDoto::Player do
   subject(:player) do
-    VCR.use_cassette 'opendoto/player/valid' do
+    VCR.use_cassette 'open_doto/player/valid' do
       OpenDoto::API::Player.find('101260776')
     end
   end

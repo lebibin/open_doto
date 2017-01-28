@@ -5,7 +5,7 @@ describe OpenDoto::API::Player do
     subject(:client) { OpenDoto::API::Player.new('101260776') }
     describe '#show' do
       it 'returns OpenDoto::Player' do
-        VCR.use_cassette 'opendoto/player/valid' do
+        VCR.use_cassette 'open_doto/player/valid' do
           expect(subject.show).to be_a(OpenDoto::Player)
         end
       end
@@ -13,7 +13,7 @@ describe OpenDoto::API::Player do
   end
   describe '.find(account_id)' do
     subject(:player) do
-      VCR.use_cassette 'opendoto/player/valid' do
+      VCR.use_cassette 'open_doto/player/valid' do
         OpenDoto::API::Player.find('101260776')
       end
     end
