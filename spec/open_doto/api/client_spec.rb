@@ -2,7 +2,7 @@
 require 'spec_helper'
 describe OpenDoto::API::Client do
   context 'when endpoint is valid' do
-    let!(:endpoint) { '/players/101260776' }
+    let!(:endpoint) { "/players/#{valid_account_id}" }
     subject(:client) { described_class.new(endpoint) }
     describe '#get' do
       it 'makes request' do
@@ -26,11 +26,11 @@ describe OpenDoto::API::Client do
     end
   end
   context 'when endpoint is invalid' do
-    it 'raise ArgumentError when endpoint is nil' do
+    it 'raises ArgumentError when endpoint is nil' do
       client = proc { described_class.new(nil) }
       expect(client).to raise_error(ArgumentError)
     end
-    it 'raise ArgumentError when endpoint is blank' do
+    it 'raises ArgumentError when endpoint is blank' do
       client = proc { described_class.new('') }
       expect(client).to raise_error(ArgumentError)
     end

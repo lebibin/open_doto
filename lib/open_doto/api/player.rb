@@ -15,11 +15,24 @@ module OpenDoto
         Player.find(account_id)
       end
 
-      def self.find(account_id)
-        return if [nil, ''].include? account_id
+      def self.find(account_id, opts = {})
+        validate!(account_id)
         endpoint = "#{BASE_API_RESOURCE}/#{account_id}"
-        response = Client.new(endpoint).get
+        response = Client.new(endpoint, opts).get
         OpenDoto::Player.new(response.parse)
+      end
+
+      def self.wl(account_id, opts = {})
+        validate!(account_id)
+        endpoint = "#{BASE_API_RESOURCE}/#{account_id}/wl"
+        response = Client.new(endpoint, opts).get
+        OpenDoto::PlayerRecord.new(response.parse)
+      end
+
+      private_class_method def self.validate!(account_id)
+        error = ArgumentError
+        message = 'account_id is required'
+        raise(error, message) if [nil, ''].include?(account_id)
       end
     end
   end

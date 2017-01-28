@@ -1,0 +1,49 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.opendota.com/api/players/101260776/wl
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.11.0
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Sat, 28 Jan 2017 11:07:14 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '22'
+      Connection:
+      - keep-alive
+      Set-Cookie:
+      - __cfduid=dfdd6bb35e05bb680822e6467e77228ef1485601634; expires=Sun, 28-Jan-18
+        11:07:14 GMT; path=/; domain=.opendota.com; HttpOnly
+      X-Powered-By:
+      - Express
+      Vary:
+      - Origin, Accept-Encoding
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Etag:
+      - W/"16-MbZwSEozBFaC8WaP6vpTWQ"
+      Server:
+      - cloudflare-nginx
+      Cf-Ray:
+      - 3283fac69f91608a-MNL
+    body:
+      encoding: UTF-8
+      string: '{"win":937,"lose":867}'
+    http_version: 
+  recorded_at: Sat, 28 Jan 2017 11:07:14 GMT
+recorded_with: VCR 3.0.3
