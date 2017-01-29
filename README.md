@@ -16,15 +16,30 @@ gem 'open_doto'
 
 And then execute:
 
-    $ bundle
+$ bundle
 
 Or install it yourself as:
 
-    $ gem install open_doto
+$ gem install open_doto
 
 ## Usage
 
-*TODO: Add usage documentation*
+### OpenDoto::API::Player.method
+
+- requires `account_id` string
+- optional `opts` hash
+
+method          | return
+----------------|---------------------------------
+**[.find](https://docs.opendota.com/#tag/players%2Fpaths%2F~1players~1%7Baccount_id%7D%2Fget)**        | [`OpenDoto::Player`](lib/open_doto/player.rb)
+**[.wl](https://docs.opendota.com/#tag/players%2Fpaths%2F~1players~1%7Baccount_id%7D~1wl%2Fget)**          | [`OpenDoto::PlayerRecord`](lib/open_doto/player_record.rb)
+**[.matches](https://docs.opendota.com/#tag/players%2Fpaths%2F~1players~1%7Baccount_id%7D~1matches%2Fget)**     | `Array<OpenDoto::Match>`
+**[.heroes](https://docs.opendota.com/#tag/players%2Fpaths%2F~1players~1%7Baccount_id%7D~1heroes%2Fget)**      | `Array<OpenDoto::PlayerHero>`
+**[.peers](https://docs.opendota.com/#tag/players%2Fpaths%2F~1players~1%7Baccount_id%7D~1peers%2Fget)**       | `Array<OpenDoto::Peer>`
+**[.records](https://docs.opendota.com/#tag/players%2Fpaths%2F~1players~1%7Baccount_id%7D~1records%2Fget)**     | `Array<OpenDoto::Match>`
+**[.wordcloud](https://docs.opendota.com/#tag/players%2Fpaths%2F~1players~1%7Baccount_id%7D~1wordcloud%2Fget)**   | `Array<OpenDoto::Word>`
+**[.ratings](https://docs.opendota.com/#tag/players%2Fpaths%2F~1players~1%7Baccount_id%7D~1ratings%2Fget)**     | `Array<OpenDoto::PlayerRating>`
+**[.rankings](https://docs.opendota.com/#tag/players%2Fpaths%2F~1players~1%7Baccount_id%7D~1rankings%2Fget)**    | `Array<OpenDoto::PlayerRanking>`
 
 ## Development
 
